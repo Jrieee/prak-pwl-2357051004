@@ -10,10 +10,12 @@
                 </div>
 
                 @if($users->isEmpty())
-                    <div class="text-center py-5">
-                        <img src="/images/pp.jpg" alt="no-data" class="img-fluid rounded mb-3" style="max-width:120px; opacity:0.85;">
-                        <p class="mb-0">Belum ada pengguna.</p>
-                        <a href="{{ route('user.create') }}" class="btn btn-outline-primary btn-sm mt-3">Buat pengguna pertama</a>
+                    <div class="d-flex flex-column align-items-center justify-content-center py-5">
+                        <div class="text-center mb-3">
+                            <h5 class="mb-1">Belum ada pengguna</h5>
+                            <p class="text-muted mb-0">Daftar pengguna masih kosong. Tambahkan pengguna baru untuk memulai.</p>
+                        </div>
+                        <a href="{{ route('user.create') }}" class="btn btn-primary btn-sm mt-3">Buat pengguna pertama</a>
                     </div>
                 @else
                     @if(session('success'))

@@ -36,57 +36,62 @@
                         <form action="{{ route('user.store') }}" method="POST" novalidate>
                             @csrf
 
-                            <div class="form-floating mb-3">
-                                <input
-                                    type="text"
-                                    id="nama"
-                                    name="nama"
-                                    class="form-control @error('nama') is-invalid @enderror"
-                                    placeholder="Nama lengkap"
-                                    value="{{ old('nama') }}"
-                                    required
-                                    autofocus
-                                >
-                                <label for="nama">Nama</label>
-                                @error('nama')
-                                    <div class="invalid-feedback">{{ $message }}</div>
-                                @enderror
-                            </div>
-
-                            <div class="form-floating mb-3">
-                                <input
-                                    type="text"
-                                    id="npm"
-                                    name="npm"
-                                    class="form-control @error('npm') is-invalid @enderror"
-                                    placeholder="NPM"
-                                    value="{{ old('npm') }}"
-                                >
-                                <label for="npm">NPM</label>
-                                @error('npm')
-                                    <div class="invalid-feedback">{{ $message }}</div>
-                                @enderror
-                            </div>
-
-                            <div class="mb-3">
-                                <label for="kelas_id" class="form-label">Kelas</label>
-                                <select name="kelas_id" id="kelas_id" class="form-select @error('kelas_id') is-invalid @enderror">
-                                    <option value="">-- Pilih Kelas --</option>
-                                    @foreach ($kelas as $kelasItem)
-                                        <option value="{{ $kelasItem->id }}" {{ old('kelas_id') == $kelasItem->id ? 'selected' : '' }}>{{ $kelasItem->nama_kelas }}</option>
-                                    @endforeach
-                                </select>
-                                @error('kelas_id')
-                                    <div class="invalid-feedback">{{ $message }}</div>
-                                @enderror
-                            </div>
-
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div>
-                                    <button type="submit" class="btn btn-primary">Buat Pengguna</button>
-                                    <a href="{{ url('/user') }}" class="btn btn-link">Batal</a>
+                            <div class="row g-3">
+                                <div class="col-12 col-md-6">
+                                    <div class="form-floating">
+                                        <input
+                                            type="text"
+                                            id="nama"
+                                            name="nama"
+                                            class="form-control @error('nama') is-invalid @enderror"
+                                            placeholder="Nama lengkap"
+                                            value="{{ old('nama') }}"
+                                            required
+                                            autofocus
+                                        >
+                                        <label for="nama">Nama</label>
+                                        @error('nama')
+                                            <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
+                                    </div>
                                 </div>
-                                <small class="text-muted">Pastikan data sudah benar sebelum menyimpan.</small>
+
+                                <div class="col-12 col-md-6">
+                                    <div class="form-floating">
+                                        <input
+                                            type="text"
+                                            id="npm"
+                                            name="npm"
+                                            class="form-control @error('npm') is-invalid @enderror"
+                                            placeholder="NPM"
+                                            value="{{ old('npm') }}"
+                                        >
+                                        <label for="npm">NPM</label>
+                                        @error('npm')
+                                            <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                </div>
+
+                                <div class="col-12">
+                                    <label for="kelas_id" class="form-label">Kelas</label>
+                                    <select name="kelas_id" id="kelas_id" class="form-select @error('kelas_id') is-invalid @enderror">
+                                        <option value="">-- Pilih Kelas --</option>
+                                        @foreach ($kelas as $kelasItem)
+                                            <option value="{{ $kelasItem->id }}" 
+                                            {{ old('kelas_id') == $kelasItem->id ? 'selected' : '' }}>{{ $kelasItem->nama_kelas }}</option>
+                                        @endforeach
+                                    </select>
+                                    @error('kelas_id')
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                    @enderror
+                                </div>
+
+                                <div class="col-12 text-center mt-3">
+                                    <button type="submit" class="btn btn-primary me-2">Buat Pengguna</button>
+                                    <a href="{{ url('/user') }}" class="btn btn-outline-secondary">Batal</a>
+                                    <div class="small text-muted mt-2">Pastikan data sudah benar sebelum menyimpan.</div>
+                                </div>
                             </div>
                         </form>
                     </div>
