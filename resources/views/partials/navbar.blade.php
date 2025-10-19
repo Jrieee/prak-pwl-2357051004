@@ -16,6 +16,9 @@
                 <li class="nav-item">
                     <a class="nav-link {{ request()->is('user*') ? 'active' : '' }}" href="{{ url('/user') }}">Users</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link {{ request()->is('matakuliah*') ? 'active' : '' }}" href="{{ route('matakuliah.index') }}">Mata Kuliah</a>
+                </li>
             </ul>
         </div>
     </div>
