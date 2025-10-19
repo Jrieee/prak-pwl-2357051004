@@ -14,10 +14,10 @@
                     <a class="nav-link {{ request()->is('profile') ? 'active' : '' }}" href="{{ url('/profile') }}">Profile</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ request()->is('user*') ? 'active' : '' }}" href="{{ url('/user') }}">Users</a>
+                    <a class="nav-link {{ Route::currentRouteNamed('user.*') || request()->is('user*') ? 'active' : '' }}" href="{{ url('/user') }}">Users</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ request()->is('matakuliah*') ? 'active' : '' }}" href="{{ route('matakuliah.index') }}">Mata Kuliah</a>
+                    <a class="nav-link {{ Route::currentRouteNamed('matakuliah.*') || request()->is('mata-kuliah*') || request()->is('matakuliah*') ? 'active' : '' }}" href="{{ route('matakuliah.index') }}">Mata Kuliah</a>
                 </li>
             </ul>
         </div>
